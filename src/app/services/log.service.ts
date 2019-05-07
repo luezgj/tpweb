@@ -8,7 +8,7 @@ import { Message } from '../message';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};	
+};
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ const httpOptions = {
 
 export class LogService {
 	private baseUrl = 'http://localhost:8080/api';
-  
+
   constructor(private http: HttpClient) { }
 
   createLog(newLog: Log): Observable<Log>{
@@ -39,4 +39,9 @@ export class LogService {
   modifyLog(modifiedLog: 	Log):Observable<Log>{
   	return this.http.put<Log>(this.baseUrl+"/log/"+modifiedLog.id	,modifiedLog, httpOptions);
   }
+
+  getUserLogs():Observable<Log[]>{
+    return this.http.get<Log[]>(this.baseUrl+"/log/user", httpOptions);
+  }
+
 }

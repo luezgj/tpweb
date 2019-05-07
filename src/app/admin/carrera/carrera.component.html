@@ -1,0 +1,24 @@
+<h2>Carreras</h2>
+
+<form [formGroup]="carreraForm" (ngSubmit)="add(carreraForm)">
+  <input formControlName="nombre" placeholder="Nombre de la carrera">
+  <input type="number" formControlName="cantidadMaterias" placeholder="Cantidad de materias:">
+	<button (click)="generateSubjectsInput(cantidadMaterias.value)">Especificar materias</button>
+
+	<div *ngIf="subjectsVisible">
+		<div formArrayName="subjects"
+		 		 *ngFor="let subject of orderForm.get('subjects').controls; let i = index;">
+			    <input formControlName="i" placeholder="Materia + $i">
+		  		<!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
+			</div>
+	</div>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    <button class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
+  </li>
+</ul>

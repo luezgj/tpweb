@@ -11,13 +11,13 @@ export class CarreraComponent implements OnInit {
 
 	carreraForm: FormGroup;
 	subjects: FormArray;
-	subjectsVisible: boolean= false;
 
 	constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
   	this.carreraForm = this.formBuilder.group({
 	    nombre: '',
+	    cantidadMaterias: 0,
 	    subjects: this.formBuilder.array([])
  		});
   }
@@ -27,11 +27,14 @@ export class CarreraComponent implements OnInit {
   	for (var _i = 0; _i < cantidad; _i++){ 
   		this.subjects.push(new FormControl);
   	}
-  	this.subjectsVisible= true;
   }
 
-  add(nombre: string){
-  	this.subjectsVisible= false;
+  add(submitform: FormGroup){
+    
+  }
+
+  ereaseForm(){
+    
   }
 
 

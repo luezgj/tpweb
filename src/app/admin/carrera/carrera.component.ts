@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 
+import { Carrera } from '../../model/carrera';
+import { CarreraService } from '../../services/carrera.service';
+
 
 @Component({
   selector: 'app-carrera',
@@ -12,7 +15,7 @@ export class CarreraComponent implements OnInit {
 	carreraForm: FormGroup;
 	subjects: FormArray;
 
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private formBuilder: FormBuilder, private carreraService: CarreraService) {}
 
   ngOnInit() {
   	this.carreraForm = this.formBuilder.group({
@@ -30,7 +33,8 @@ export class CarreraComponent implements OnInit {
   }
 
   add(submitform: FormGroup){
-    
+    newCarrera: new Carrera();
+    carreraService.addCarrera(newCarrera).suscribe(carrera => console.log('Carrera agregada'+ carrera.nombre));
   }
 
   ereaseForm(){

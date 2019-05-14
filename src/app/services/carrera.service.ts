@@ -19,7 +19,7 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  addCarrera(newCarrera : Carrera): Observable<Message>{
+  addCarrera(newCarrera : Carrera): Observable<Carrera>{
   	return this.http.post<Message>(this.baseUrl+"/carrera", httpOptions);
   }
 

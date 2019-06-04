@@ -19,16 +19,16 @@ export class MesaService {
 
   constructor(private http: HttpClient) { }
 
-  addMesa(newMesa : Mesa): Observable<Message>{
-  	return this.http.post<Message>(this.baseUrl+"/mesa", httpOptions);
+  addMesa(newMesa : Mesa): Observable<Mesa>{
+  	return this.http.post<Mesa>(this.baseUrl+"/mesa", httpOptions);
   }
 
-  getMesa(): Observable<Message>{
-  	return this.http.get<Message>(this.baseUrl+"/mesa", httpOptions);
+  getMesas(): Observable<Mesa[]>{
+  	return this.http.get<Mesa[]>(this.baseUrl+"/mesa", httpOptions);
   }
 
-  getMesa(nombre : String): Observable<Message>{
-    return this.http.get<Message>(this.baseUrl+"/mesa", httpOptions);
+  getMesa(nombre : String): Observable<Mesa>{
+    return this.http.get<Mesa>(this.baseUrl+"/mesa/"+nombre, httpOptions);
   }
 
 }

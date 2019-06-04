@@ -1,4 +1,6 @@
 export class Carrera {
-    nombre: string;
-    materias : string[];
+	constructor(
+    public nombre: string,
+    public materias: string[]
+  ) { }
 }

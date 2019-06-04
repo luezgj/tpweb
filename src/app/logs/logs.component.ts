@@ -17,12 +17,12 @@ export class LogsComponent implements OnInit {
   }
 
   getLogs() : void {
-    this.logService.getLogs().subscribe(logs => this.logs = logs);
+    this.logService.getUserLogs().subscribe(logs => this.logs = logs);
   }
 
   delete(log : Log) : void {
     this.logs = this.logs.filter(l => l !== log);
-    this.logService.delete(log).subscribe();
+    this.logService.deleteLog(log.id).subscribe();
   }
 
   modify(log : Log) : void{

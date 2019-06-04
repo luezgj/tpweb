@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
-import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,15 +8,10 @@ import { TokenStorageService } from '../auth/token-storage.service';
 })
 export class DashboardComponent implements OnInit {
   	
-	constructor( private token: TokenStorageService, public router: Router) {
+	constructor() {
 	
 	}
 
 	ngOnInit() {
-  	}
-
-	logOut() {
-		this.token.signOut();
-		this.router.navigate(['/login']);
-	}
+  }
 }

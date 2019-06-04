@@ -1,5 +1,6 @@
 <div *ngIf="isLoggedIn; else loggedOut">
   Loguado como {{roles}}.
+  Ir al <a routerLink="/dashboard">Inicio</a>
 </div>
  
 <ng-template #loggedOut>

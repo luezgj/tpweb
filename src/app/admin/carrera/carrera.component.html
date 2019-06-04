@@ -3,15 +3,16 @@
 <form [formGroup]="carreraForm" (ngSubmit)="add(carreraForm)">
   <input formControlName="nombre" placeholder="Nombre de la carrera">
   <input type="number" formControlName="cantidadMaterias" placeholder="Cantidad de materias:">
-	<button (click)="generateSubjectsInput(carreraForm.get('cantidadMaterias').value)">Especificar materias</button>
+	<button type="button" (click)="addSubjects(carreraForm.get('cantidadMaterias').value)">Agregar materias</button>
 
 	<div>
 		<a>Visible</a>
 		<div formArrayName="subjects"
-		 		 *ngFor="let subject of carreraForm.get('subjects').controls; let i = index;">
-			    <input placeholder="Materia">
-		  		<!-- Chosen name: {{ orderForm.controls.items.controls[i].controls.name.value }} -->
-			</div>
+		 		*ngFor="let subject of carreraForm.get('subjects').controls; let i = index;">
+			    <input placeholder="Materia" value="{{ subject.value }}">
+		  		<button type="button" (click)="deleteSubject(i)">Borrar</button>
+		</div>
+		<button type="button" (click)="addSubjects(1)">+1</button>
 	</div>
 
 	<input type="submit"> 

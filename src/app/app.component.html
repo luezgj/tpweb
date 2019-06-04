@@ -1,3 +1,10 @@
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<div class="layout-overflow">
+  <!-- HEADER -->
+  <app-header></app-header>
+  <!-- CONTENT -->
+  <div id="layout-view" class="layout-view">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- FOOTER -->
+  <app-footer></app-footer>
+</div> <!-- /.layout-overflow -->

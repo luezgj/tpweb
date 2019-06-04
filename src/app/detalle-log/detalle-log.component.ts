@@ -20,7 +20,13 @@ export class DetalleLogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getLog();
+  	this.getLog();
+  }
+
+  getLog(): void {
+    const id = +this.ruta.snapshot.paramMap.get('id');
+    this.logService.getLog(id)
+      .subscribe(log => this.log = log);
   }
 
   goBack(): void {

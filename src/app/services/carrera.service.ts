@@ -13,14 +13,14 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class UsuarioService {
+export class CarreraService {
 
 	private baseUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
 
   addCarrera(newCarrera : Carrera): Observable<Carrera>{
-  	return this.http.post<Message>(this.baseUrl+"/carrera", httpOptions);
+  	return this.http.post<Carrera>(this.baseUrl+"/carrera", httpOptions);
   }
 
   getCarreras(): Observable<Message>{
@@ -33,10 +33,6 @@ export class UsuarioService {
 
   deleteCarrera(id : Number): Observable<Message>{
     return this.http.delete<Message>(this.baseUrl+"/carrera", httpOptions);
-  }
-
-  getCarrera(id : Number): Observable<Message>{
-    return this.http.get<Message>(this.baseUrl+"/carrera", httpOptions);
   }
 
   modifyCarrera(modifiedCarrera : Carrera): Observable<Message>{

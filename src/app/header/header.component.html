@@ -1,0 +1,39 @@
+<header id="header" class="header">
+  <div class="header-page bg-primary">
+    <h1 class="header-page-siteTitle">
+      <a routerLink="/">Finales</a>
+    </h1>
+  </div>
+
+
+  <nav *ngIf="this.isLogged" id="nav" class="nav" role="navigation">
+    
+    <ul class="nav-list">
+      <li>
+        <a
+          routerLink="/dashboard"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">Home</a>
+      </li>
+      
+    </ul>
+
+    <ul class="nav-list" *ngIf="this.isAdmin">
+      <li>
+        <a
+          routerLink="/admin/carrera"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">Carreras</a>
+      </li>
+      
+    </ul>
+
+    <span>
+          {{ token.getUsername() }}
+          <span class="divider">|</span>
+          <a (click)="logOut()">Log Out</a>
+    </span>
+
+  </nav>
+
+</header>

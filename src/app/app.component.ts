@@ -14,6 +14,6 @@ export class AppComponent {
   title = 'Planificador de finales';
 
 	constructor(private http: HttpClient, private router: Router) {
-    }
+  }
 
 }

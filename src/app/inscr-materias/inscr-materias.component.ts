@@ -6,6 +6,7 @@ import { Carrera } from '../model/carrera';
 import { Log } from '../model/log';
 import { CarreraService } from '../services/carrera.service';
 import { LogService } from '../service/log.service';
+import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-inscr-materias',
@@ -20,6 +21,7 @@ export class InscrMateriasComponent implements OnInit {
   constructor(
     private logService: LogService,
     private carreraService: CarreraService,
+    private tokenService: TokenStorageService,
     private ruta : ActivatedRoute,
     private location : Location
   ) { }
@@ -33,8 +35,7 @@ export class InscrMateriasComponent implements OnInit {
   }
 
   generateLog(materia: string) : Log {
-    //PENDIENTE*********************************
-    newLog = new Log(123, 'usuario', mesa.nombre, materia, carrera.nombre,
+    newLog = new Log(tokenService.getUsername(), mesa.nombre, materia, carrera.nombre,
                     'Pendiente', new Date())
     this.logService.createLog(newLog)
   }

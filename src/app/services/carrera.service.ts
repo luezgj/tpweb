@@ -39,4 +39,8 @@ export class CarreraService {
     return this.http.post<Message>(this.baseUrl+"/carrera", httpOptions);
   }
 
+  getUserLogs():Observable<Carrera[]>{
+    return this.http.get<Carrera[]>(this.baseUrl+"/carrera/user", httpOptions);
+  }
+
 }

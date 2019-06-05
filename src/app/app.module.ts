@@ -15,6 +15,10 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { CarreraComponent } from './admin/carrera/carrera.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { MesasComponent } from './mesas/mesas.component';
+import { UserCarrerasComponent } from './mesas/user-carreras/user-carreras.component';
+import { UsercarrerasComponent } from './usercarreras/usercarreras.component';
+import { InscrMateriasComponent } from './inscr-materias/inscr-materias.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,11 @@ import { FooterComponent } from './footer/footer.component';
     DetalleLogComponent,
     CarreraComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    MesasComponent,
+    UserCarrerasComponent,
+    UsercarrerasComponent,
+    InscrMateriasComponent
   ],
   imports: [
     BrowserModule,

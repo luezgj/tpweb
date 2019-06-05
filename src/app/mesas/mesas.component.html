@@ -1,0 +1,9 @@
+<h2>Lista de mesas disponibles:</h2>
+
+<ul class="mesas">
+  <li *ngFor="let mesa of mesas">
+    <a routerLink="/user-carreras/">
+      <span class="badge">{{mesa.nombre}}</span> {{mesa.fechaDesde}} {{mesa.fechaHasta}}
+    </a>
+  </li>
+</ul>

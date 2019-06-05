@@ -1,0 +1,12 @@
+<h2>Inscripcion</h2>
+<h3>Carrera a la que pertenece la materia a la que se quiere anotar</h3>
+
+<ul class="carreras">
+  <li *ngFor="let carrera of carreras">
+    <a routerLink="/inscr-materias/">
+      <span class="badge">{{carrera.nombre}}</span>
+    </a>
+  </li>
+</ul>
+
+<button (click)="goBack()">go back</button>

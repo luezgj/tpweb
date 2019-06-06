@@ -4,8 +4,9 @@ import { Location } from '@angular/common';
 
 import { Carrera } from '../model/carrera';
 import { Log } from '../model/log';
+import { Mesa } from '../model/mesa';
 import { CarreraService } from '../services/carrera.service';
-import { LogService } from '../service/log.service';
+import { LogService } from '../services/log.service';
 import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
@@ -31,13 +32,13 @@ export class InscrMateriasComponent implements OnInit {
   }
 
   getMaterias() : void {
-    this.carrera.subscribe(materias => this.materias = materias)
+    this.materias = this.carrera.materias;
   }
 
-  generateLog(materia: string) : Log {
-    newLog = new Log(tokenService.getUsername(), mesa.nombre, materia, carrera.nombre,
-                    'Pendiente', new Date())
-    this.logService.createLog(newLog)
+  generateLog(materia: string) : void {
+    let newLog = new Log(this.tokenService.getUsername(), this.mesa.nombre, materia, this.carrera.nombre,
+                    'Pendiente', new Date());
+    this.logService.createLog(newLog);
   }
 
 }

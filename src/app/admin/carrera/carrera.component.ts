@@ -59,7 +59,7 @@ export class CarreraComponent implements OnInit {
   addSubjects(cantidad: number){
   	this.subjects = this.carreraForm.get('subjects') as FormArray;
   	for (var _i = 0; _i < cantidad; _i++){ 
-  		this.subjects.push(new FormControl);
+  		this.subjects.push(new FormControl());
   	}
   }
 
@@ -68,7 +68,10 @@ export class CarreraComponent implements OnInit {
       submitform.get('nombre').value,
       submitform.get('subjects').value
       );
+
+
     if (!this.isEdit) {
+      console.log(submitCarrera);
       this.carreraService.addCarrera(submitCarrera).subscribe(carrera => console.log('Carrera agregada'+ carrera.nombre));
     } else {
       this.carreraService.modifyCarrera(submitCarrera).subscribe(message => console.log(message));

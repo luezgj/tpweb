@@ -9,7 +9,7 @@
 		<a>Visible</a>
 		<div formArrayName="subjects"
 		 		*ngFor="let subject of carreraForm.get('subjects').controls; let i = index;">
-			    <input placeholder="Materia" value="{{ subject.value }}">
+			    <input placeholder="Nombre de la materia" value="{{ subject.value }}" formControlName="{{ i }}">
 		  		<button type="button" (click)="deleteSubject(i)">Borrar</button>
 		</div>
 		<button type="button" (click)="addSubjects(1)">+1</button>
@@ -18,13 +18,3 @@
 	<input type="submit"> 
 
 </form>
-
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
-    <button class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
-  </li>
-</ul>

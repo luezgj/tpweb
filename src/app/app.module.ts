@@ -16,8 +16,7 @@ import { CarreraComponent } from './admin/carrera/carrera.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MesasComponent } from './mesas/mesas.component';
-import { UserCarrerasComponent } from './mesas/user-carreras/user-carreras.component';
-import { UsercarrerasComponent } from './usercarreras/usercarreras.component';
+import { UserCarrerasComponent } from './user-carreras/user-carreras.component';
 import { InscrMateriasComponent } from './inscr-materias/inscr-materias.component';
 
 @NgModule({
@@ -33,7 +32,6 @@ import { InscrMateriasComponent } from './inscr-materias/inscr-materias.componen
     FooterComponent,
     MesasComponent,
     UserCarrerasComponent,
-    UsercarrerasComponent,
     InscrMateriasComponent
   ],
   imports: [

@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 
 import { Mesa } from '../model/mesa';
 import { MesaService } from '../services/mesa.service';
+import { Carrera } from '../model/carrera';
+import { CarreraService } from '../services/carrera.service';
 
 @Component({
   selector: 'app-user-carreras',

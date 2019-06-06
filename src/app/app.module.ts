@@ -18,6 +18,9 @@ import { FooterComponent } from './footer/footer.component';
 import { MesasComponent } from './mesas/mesas.component';
 import { UserCarrerasComponent } from './user-carreras/user-carreras.component';
 import { InscrMateriasComponent } from './inscr-materias/inscr-materias.component';
+import { CarreraFormComponent } from './admin/carrera/carrera-form/carrera-form.component';
+import { MesaComponent } from './admin/mesa/mesa.component';
+import { MesaFormComponent } from './admin/mesa/mesa-form/mesa-form.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { InscrMateriasComponent } from './inscr-materias/inscr-materias.componen
     FooterComponent,
     MesasComponent,
     UserCarrerasComponent,
-    InscrMateriasComponent
+    InscrMateriasComponent,
+    CarreraFormComponent,
+    MesaComponent,
+    MesaFormComponent
   ],
   imports: [
     BrowserModule,

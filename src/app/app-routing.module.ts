@@ -1,13 +1,18 @@
-    import { NgModule } from '@angular/core';    
-    import { Routes, RouterModule } from '@angular/router';    
-    import { DashboardComponent } from './dashboard/dashboard.component';    
-    import { LoginComponent } from './login/login.component';    
-    import { LogsComponent } from './logs/logs.component';    
-    import { DetalleLogComponent } from './detalle-log/detalle-log.component';    
-    import { RegisterComponent } from './register/register.component';   
-    import { CarreraComponent } from './admin/carrera/carrera.component'; 
-    import {UrlPermission} from "./url.permission";   
-    import { AuthGuard } from './auth/auth.guard';
+import { NgModule } from '@angular/core';    
+import { Routes, RouterModule } from '@angular/router'; 
+
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';  
+
+import { DashboardComponent } from './dashboard/dashboard.component';    
+import { LogsComponent } from './logs/logs.component';    
+import { DetalleLogComponent } from './detalle-log/detalle-log.component';    
+       
+import { CarreraComponent } from './admin/carrera/carrera.component'; 
+import { MesaComponent } from './admin/mesa/mesa.component';
+
+import { UrlPermission } from "./url.permission";   
+import { AuthGuard } from './auth/auth.guard';
 import { AdminGuard } from './auth/admin.guard'; 
         
     export const routes: Routes = [    
@@ -51,9 +56,17 @@ import { AdminGuard } from './auth/admin.guard';
             data: {    
               title: 'Administración de carreras'    
             }
+          },
+          {
+            path: 'mesa',    
+            component: MesaComponent,    
+            data: {    
+              title: 'Administración de mesas'    
+            }
           }
         ]
       },
+
       {    
         path: 'logs',    
         component: LogsComponent,    
@@ -61,6 +74,7 @@ import { AdminGuard } from './auth/admin.guard';
           title: 'Lista de logs'    
         }    
       },
+      
       {    
         path: 'detalle-log/:id',    
         component: DetalleLogComponent,    

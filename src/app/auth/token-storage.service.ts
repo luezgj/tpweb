@@ -54,19 +54,19 @@ export class TokenStorageService {
 
   public isAuthenticated(): boolean {
     const token = this.getToken();
-    return true;
-    return token!=null;
+    var islogged=false;
+    if (token!=null) {islogged=true;}
+    return islogged;
   }
 
   public isAdmin(): boolean {
     const authorities = this.getAuthorities();
-
+    var isAdmin= false;
     authorities.forEach(function(auth) {
-      console.log(auth);
-      if (auth=="ROLE_ADMIN") {return true;}
+      if (auth=="ROLE_ADMIN") {isAdmin=true;}
     });
 
-    return false;
+    return isAdmin;
   }
 
 }

@@ -41,7 +41,7 @@ export class MesaFormComponent implements OnInit {
 
   send(){
     if (!this.isEdit) {
-      this.mesaService.addMesa(this.newMesa).subscribe(mesa => console.log('Mesa agregada'+ mesa.nombre));
+      this.mesaService.addMesa(this.newMesa).subscribe(mesa => console.log('Mesa agregada'+ mesa.nombre+"-Desde:"+mesa.fechaDesde+"-Hasta:"+mesa.fechaHasta));
     } else {
       //NO SE PUEDE MODIFICAR UNA MESA PERO IGUAL DEJO EL CÓDIGO
       //this.mesaService.modifyMesa(this.newMesa).subscribe(message => console.log(message));

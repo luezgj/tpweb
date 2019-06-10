@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { MesaFormComponent } from './mesa-form/mesa-form.component';
+import { MesasComponent } from '../../mesas/mesas.component';
 
 @Component({
   selector: 'app-mesa',

@@ -10,6 +10,7 @@ import { MesaService } from '../services/mesa.service';
 })
 export class MesasComponent implements OnInit {
   mesas: Mesa[];
+  @Output() mesaLogAdd = new EventEmitter<Mesa>();
 
   constructor(private mesaService: MesaService) { }
 
@@ -19,6 +20,10 @@ export class MesasComponent implements OnInit {
 
   getMesas() : void {
     this.mesaService.getMesas().subscribe(mesas => this.mesas = mesas);
+  }
+
+  inscribirseMesa(addLogMesa: Mesa){
+    this.mesaLogAdd.emit(addLogMesa);
   }
 
 }

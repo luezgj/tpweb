@@ -1,7 +1,6 @@
 <ul class="mesas">
   <li *ngFor="let mesa of mesas">
-    <a routerLink="/user-carreras/">
-      <span class="badge">{{mesa.nombre}}</span> {{mesa.fechaDesde}} {{mesa.fechaHasta}}
-    </a>
+    <span class="badge">{{mesa.nombre}}</span> {{mesa.fechaDesde}} {{mesa.fechaHasta}}
+    <button type="button" (click)="inscribirseMesa(mesa)">Anotarse</button>
   </li>
 </ul>

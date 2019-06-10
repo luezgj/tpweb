@@ -14,4 +14,9 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit() {
   }
+
+
+  registrarLogMesa(mesaARegistrar:Mesa){
+  	
+  }
 }

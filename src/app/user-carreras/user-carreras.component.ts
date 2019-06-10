@@ -13,7 +13,6 @@ import { CarreraService } from '../services/carrera.service';
   styleUrls: ['./user-carreras.component.scss']
 })
 export class UserCarrerasComponent implements OnInit {
-  @Input() mesa: Mesa;
   carreras: Carrera[];
 
   constructor(

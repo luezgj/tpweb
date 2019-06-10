@@ -20,7 +20,7 @@ export class MesaService {
   constructor(private http: HttpClient) { }
 
   addMesa(newMesa : Mesa): Observable<Mesa>{
-  	return this.http.post<Mesa>(this.baseUrl+"/mesa", httpOptions);
+  	return this.http.post<Mesa>(this.baseUrl+"/mesa", newMesa,httpOptions);
   }
 
   getMesas(): Observable<Mesa[]>{

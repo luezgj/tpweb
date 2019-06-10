@@ -21,6 +21,7 @@ import { InscrMateriasComponent } from './inscr-materias/inscr-materias.componen
 import { CarreraFormComponent } from './admin/carrera/carrera-form/carrera-form.component';
 import { MesaComponent } from './admin/mesa/mesa.component';
 import { MesaFormComponent } from './admin/mesa/mesa-form/mesa-form.component';
+import { NewMesaComponent } from './new-mesa/new-mesa.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { MesaFormComponent } from './admin/mesa/mesa-form/mesa-form.component';
     InscrMateriasComponent,
     CarreraFormComponent,
     MesaComponent,
-    MesaFormComponent
+    MesaFormComponent,
+    NewMesaComponent
   ],
   imports: [
     BrowserModule,

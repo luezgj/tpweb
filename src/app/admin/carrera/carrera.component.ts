@@ -31,6 +31,7 @@ export class CarreraComponent implements OnInit {
   }
 
   delCarrera(nombre : String): void {
+
     this.carreraService.deleteCarrera(nombre);
   }
 }

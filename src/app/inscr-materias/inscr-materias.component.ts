@@ -15,8 +15,9 @@ import { TokenStorageService } from '../auth/token-storage.service';
   styleUrls: ['./inscr-materias.component.scss']
 })
 export class InscrMateriasComponent implements OnInit {
-  @Input('mesa') mesa: Mesa;
+  @Input('carrera') carrera: Carrera;
   materias: string[];
+  selectedMateria: string;
 
   constructor(
     private logService: LogService,
@@ -31,7 +32,13 @@ export class InscrMateriasComponent implements OnInit {
   }
 
   getMaterias() : void {
-    this.materias = this.carrera.materias;
+    if(this.carrera!=null){
+      this.materias = this.carrera.materias;
+    }
+  }
+
+  selectMateria(newSelectedMateria): void{
+    this.selectedMateria=newSelectedMateria;
   }
 
 }

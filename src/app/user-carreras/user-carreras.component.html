@@ -3,10 +3,9 @@
 
 <ul class="carreras">
   <li *ngFor="let carrera of carreras">
-    <a routerLink="/inscr-materias/">
-      <span class="badge">{{carrera.nombre}}</span>
-    </a>
+  	<span class="badge">{{carrera.nombre}}</span>
+  	<button (click)="setCarrera(carrera)">Seleccionar</button>
   </li>
 </ul>
 
-<app-iscr-materias></app-iscr-materias>
+<app-inscr-materias [hidden]="!this.selectedCarrera" [carrera]="this.selectedCarrera"></app-inscr-materias>

@@ -4,4 +4,11 @@
 <app-carrera-form></app-carrera-form>
 
 <h2>Lista de carreras</h2>
-
+<ul class="carreras">
+  <li *ngFor="let carrera of carreras">
+  	<span class="badge">{{carrera.nombre}}</span>
+  	<button (click)="updateCarrera(carrera)">Editar</button>
+    <button (click)="delCarrera(carrera.nombre)">X</button>
+    <app-carrera-form *ngIf="carrera.nombre == selectedCarrera"[carrera]="carrera"></app-carrera-form>
+  </li>
+</ul>

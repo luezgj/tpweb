@@ -22,6 +22,7 @@ import { CarreraFormComponent } from './admin/carrera/carrera-form/carrera-form.
 import { MesaComponent } from './admin/mesa/mesa.component';
 import { MesaFormComponent } from './admin/mesa/mesa-form/mesa-form.component';
 import { NewLogComponent } from './new-log/new-log.component';
+import { UsrCarreraSubsComponent } from './usr-carrera-subs/usr-carrera-subs.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { NewLogComponent } from './new-log/new-log.component';
     CarreraFormComponent,
     MesaComponent,
     MesaFormComponent,
-    NewLogComponent
+    NewLogComponent,
+    UsrCarreraSubsComponent
   ],
   imports: [
     BrowserModule,

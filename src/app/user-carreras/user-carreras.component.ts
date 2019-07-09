@@ -31,7 +31,7 @@ export class UserCarrerasComponent implements OnInit {
   }
 
   getUserCarreras() : void {
-    this.carreraService.getUserCarreras().subscribe(carreras => this.carreras = carreras);
+    this.carreraService.getUserCarreras().subscribe(carreras => (console.log("Traje estas carreras"+carreras)));
   }
 
   setCarrera(newSelectedCarrera: Carrera): void {

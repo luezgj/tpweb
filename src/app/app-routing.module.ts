@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';  
 
 import { DashboardComponent } from './dashboard/dashboard.component';    
+import { UsrCarreraSubsComponent } from './usr-carrera-subs/usr-carrera-subs.component';  
 import { LogsComponent } from './logs/logs.component';    
 import { DetalleLogComponent } from './detalle-log/detalle-log.component';    
        
@@ -72,6 +73,14 @@ import { AdminGuard } from './auth/admin.guard';
         component: LogsComponent,    
         data: {    
           title: 'Lista de logs'    
+        }    
+      },
+
+      {    
+        path: 'carreras',    
+        component: UsrCarreraSubsComponent,    
+        data: {    
+          title: 'Carreras del usuario'    
         }    
       },
       

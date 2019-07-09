@@ -27,16 +27,17 @@ export class CarreraService {
     return this.http.get<Carrera[]>(this.baseUrl+"/carrera", httpOptions);
   }
 
-  getCarrera(nombre : String): Observable<Message>{
-    return this.http.get<Message>(this.baseUrl+"/carrera/"+nombre, httpOptions);
+  getCarrera(nombre : String): Observable<Carrera>{
+    return this.http.get<Carrera>(this.baseUrl+"/carrera/"+nombre, httpOptions);
   }
 
   deleteCarrera(nombre : String): Observable<Message>{
+    console.log("LLAMADO");
     return this.http.delete<Message>(this.baseUrl+"/carrera/"+nombre, httpOptions);
   }
 
   modifyCarrera(modifiedCarrera : Carrera): Observable<Message>{
-    return this.http.post<Message>(this.baseUrl+"/carrera"+modifiedCarrera.nombre, modifiedCarrera,httpOptions);
+    return this.http.put<Message>(this.baseUrl+"/carrera/"+modifiedCarrera.nombre, modifiedCarrera,httpOptions);
   }
 
   getUserCarreras():Observable<Carrera[]>{

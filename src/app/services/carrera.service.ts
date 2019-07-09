@@ -15,7 +15,7 @@ const httpOptions = {
 
 export class CarreraService {
 
-	private baseUrl = 'http://localhost:8080/api';
+	private baseUrl = 'http://10.13.37.163:8080/api';
 
   constructor(private http: HttpClient) { }
 
@@ -23,8 +23,8 @@ export class CarreraService {
   	return this.http.post<Carrera>(this.baseUrl+"/carrera", newCarrera, httpOptions);
   }
 
-  getCarreras(): Observable<Message>{
-    return this.http.get<Message>(this.baseUrl+"/carrera", httpOptions);
+  getCarreras(): Observable<Carrera[]>{
+    return this.http.get<Carrera[]>(this.baseUrl+"/carrera", httpOptions);
   }
 
   getCarrera(nombre : String): Observable<Message>{

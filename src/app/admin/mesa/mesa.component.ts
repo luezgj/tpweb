@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 
 import { MesaFormComponent } from './mesa-form/mesa-form.component';
 import { MesasComponent } from '../../mesas/mesas.component';
+import { Mesa } from '../../model/mesa'
 
 @Component({
   selector: 'app-mesa',
@@ -9,10 +10,15 @@ import { MesasComponent } from '../../mesas/mesas.component';
   styleUrls: ['./mesa.component.scss']
 })
 export class MesaComponent implements OnInit {
+  evento : EventEmitter<Mesa>;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  mesaAdded(mesa : Mesa): void {
+    this.evento.emit(mesa);
   }
 
 }

@@ -1,11 +1,19 @@
 <h2>Historial</h2>
 
 <ul class="logs">
-  <li *ngFor="let log of logs">
+  <li *ngFor="let log of logs; let i = index">
     <a routerLink="/detalle-log/{{log.id}}">
-      <span class="badge">{{log.id}}</span> {{log.fecha}}
+      <span class="badge">{{log.id}}</span> Date = {{log.fecha | date : dd.MM.yy}}
     </a>
     <button class="delete" title="borrar log"
-      (click)="delete(log)">x</button>
+      (click)="delete(log, i)">x</button>
+    <select name="Estado" ng-model="selection[i]">
+      <option value="Sin rendir">Sin rendir</option>
+      <option value="Ausente">Ausente</option>
+      <option value="Aprobado">Aprobado</option>
+      <option value="Desaprobado">Desaprobado</option>
+    </select>
+    <button class="edit" title="Editar"
+      (click)="modify(log, i)">Editar</button>
   </li>
 </ul>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Mesa } from '../../../model/mesa';
 import { MesaService } from '../../../services/mesa.service';
@@ -11,6 +11,7 @@ import { MesaService } from '../../../services/mesa.service';
 export class MesaFormComponent implements OnInit {
 
 	@Input() mesa: Mesa;
+  @Output() add: EventEmitter<Mesa> = new EventEmitter();
   isEdit: boolean;
   error: boolean;
   submitting: boolean;
@@ -41,7 +42,11 @@ export class MesaFormComponent implements OnInit {
 
   send(){
     if (!this.isEdit) {
-      this.mesaService.addMesa(this.newMesa).subscribe(mesa => console.log('Mesa agregada'+ mesa.nombre+"-Desde:"+mesa.fechaDesde+"-Hasta:"+mesa.fechaHasta));
+      this.mesaService.addMesa(this.newMesa)
+        .subscribe(mesa => {
+          console.log('Mesa agregada'+ mesa.nombre+"-Desde:"+mesa.fechaDesde+"-Hasta:"+mesa.fechaHasta);
+          this.add.emit(mesa);
+        });
     } else {
       //NO SE PUEDE MODIFICAR UNA MESA PERO IGUAL DEJO EL CÓDIGO
       //this.mesaService.modifyMesa(this.newMesa).subscribe(message => console.log(message));

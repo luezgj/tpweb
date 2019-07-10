@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Carrera } from '../../model/carrera';
 import { CarreraService } from '../../services/carrera.service';
 import { CarreraFormComponent } from './carrera-form/carrera-form.component';
@@ -24,6 +23,14 @@ export class CarreraComponent implements OnInit {
 
   getAll() : void{
     this.carreraService.getCarreras().subscribe(carreras => this.carreras = carreras);
+  }
+
+  carreraAdded(carrera : Carrera): void{
+    this.carreras.push(carrera);
+  }
+
+  carreraUpdated(carrera : Carrera): void{
+    this.carreras[this.carreras.findIndex(c => c.nombre == carrera.nombre)] = carrera;
   }
 
   updateCarrera(carrera : Carrera): void {

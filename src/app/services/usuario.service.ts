@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Usuario } from '../model/usuario';
 import { Carrera } from '../model/carrera';
 import { Message } from '../message';
+import { AppComponent } from '../app.component'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +16,7 @@ const httpOptions = {
 })
 export class UsuarioService {
 
-	private baseUrl = 'http://10.13.37.163:8080/api';
+private baseUrl = AppComponent.baseURL;
 
   constructor(private http: HttpClient) { }
 

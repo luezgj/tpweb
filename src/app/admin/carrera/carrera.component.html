@@ -1,7 +1,7 @@
 <h1>Administración de carreras</h1>
 
 <h2>Agregar Carrera</h2>
-<app-carrera-form></app-carrera-form>
+<app-carrera-form (edit)="carreraAdded(carrera)"></app-carrera-form>
 
 <h2>Lista de carreras</h2>
 <ul class="carreras">
@@ -9,6 +9,6 @@
   	<span class="badge">{{carrera.nombre}}</span>
   	<button (click)="updateCarrera(carrera)">Editar</button>
     <button (click)="delCarrera(carrera.nombre)">X</button>
-    <app-carrera-form *ngIf="carrera.nombre == selectedCarrera"[carrera]="carrera"></app-carrera-form>
+    <app-carrera-form (edit)="carreraUpdated(carrera)" *ngIf="carrera.nombre == selectedCarrera"[carrera]="carrera"></app-carrera-form>
   </li>
 </ul>

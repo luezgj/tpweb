@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { Mesa } from '../model/mesa';
 import { MesaService } from '../services/mesa.service';
-
+import { TokenStorageService } from '../auth/token-storage.service'
 
 @Component({
   selector: 'app-mesas',
@@ -11,8 +11,11 @@ import { MesaService } from '../services/mesa.service';
 export class MesasComponent implements OnInit {
   mesas: Mesa[];
   selectedMesa: Mesa;
+  @Input() set add(evento : EventEmitter<Mesa>){
+    evento.subscribe(mesa => this.mesaAdded(mesa));
+  }
 
-  constructor(private mesaService: MesaService) { }
+  constructor(private mesaService: MesaService, private token: TokenStorageService) { }
 
   ngOnInit() {
     this.getMesas()
@@ -24,6 +27,10 @@ export class MesasComponent implements OnInit {
 
   selectMesa(addLogMesa: Mesa): void {
     this.selectedMesa=addLogMesa;
+  }
+
+  mesaAdded(mesa: Mesa): void {
+    this.mesas.push(mesa);
   }
 
 }

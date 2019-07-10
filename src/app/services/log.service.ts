@@ -15,12 +15,14 @@ const httpOptions = {
 })
 
 export class LogService {
-	private baseUrl = 'http://10.13.37.163:8080/api';
+	private baseUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
 
   createLog(newLog: Log): Observable<Log>{
-  	return this.http.post<Log>(this.baseUrl+"/log", newLog, httpOptions);
+  	console.log("Creando el nuevo log");
+    console.log(newLog);
+    return this.http.post<Log>(this.baseUrl+"/log", newLog, httpOptions);
   }
 
   //user must be administrator

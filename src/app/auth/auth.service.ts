@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-	private baseUrl = 'http://10.13.37.163:8080/api';
+	private baseUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
 

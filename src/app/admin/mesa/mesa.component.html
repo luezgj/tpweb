@@ -1,7 +1,7 @@
 <h1>Administración de mesas</h1>
 
 <h2>Agregar Mesa</h2>
-<app-mesa-form></app-mesa-form>
+<app-mesa-form (add)="mesaAdded($event)"></app-mesa-form>
 
 <h2>Lista de mesas</h2>
-<app-mesas></app-mesas>
+<app-mesas [add]="this.evento"></app-mesas>

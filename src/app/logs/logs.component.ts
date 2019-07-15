@@ -9,6 +9,8 @@ import { LogService } from '../services/log.service';
 })
 export class LogsComponent implements OnInit {
   logs: Log[];
+  selection : string[]= [];
+  editingLog: number= -1;
 
   constructor(private logService: LogService) { }
 
@@ -17,17 +19,29 @@ export class LogsComponent implements OnInit {
   }
 
   getLogs() : void {
-    this.logService.getUserLogs().subscribe(logs => this.logs = logs);
+    this.logService.getUserLogs()
+      .subscribe(
+        logs => {this.logs = logs;
+        logs.forEach(elemento=> this.selection.push(elemento.estado));
+      });
   }
 
-  delete(log : Log) : void {
-    this.logs = this.logs.filter(l => l !== log);
-    this.logService.deleteLog(log.id).subscribe();
+  delete(log : Log, index : number) : void {
+    this.logService.deleteLog(log.id).subscribe(message=> {this.logs.splice(index,1); this.selection.splice(index,1)});
   }
 
-  modify(log : Log) : void{
-    this.logs = this.logs.filter(l => l !== log);
-    this.logService.modifyLog(log);
+  modify(log : Log, index : number) : void{
+    console.log("modifing"+index);
+    this.editingLog=index;
+    console.log("editing"+this.editingLog);
+  }
+
+  conformModify(log : Log, index : number) : void{
+    console.log("modifing "+index);
+    this.logService.modifyLog(log).subscribe(modifiedLog=> {
+        this.logs[index] = modifiedLog;
+        this.editingLog=-1;
+      });
   }
 
 }

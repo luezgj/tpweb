@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import {HttpClient} from '@angular/common/http'; 
+import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
-
-
 
 @Component({
   selector: 'app-root',
@@ -12,6 +10,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'Planificador de finales';
+  static baseURL = 'http://localhost:8080/api';
 
 	constructor(private http: HttpClient, private router: Router) {
   }

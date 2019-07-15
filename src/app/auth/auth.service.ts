@@ -6,6 +6,8 @@ import { JwtResponse } from './jwt-response';
 import { UserInfo } from './user-info';
 import { Message } from '../message';
 
+import { AppComponent } from '../app.component';
+
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -15,7 +17,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-	private baseUrl = 'http://localhost:8080/api';
+	private baseUrl = AppComponent.baseURL;
 
   constructor(private http: HttpClient) { }
 

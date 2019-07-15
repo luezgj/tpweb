@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Carrera } from '../model/carrera';
 import { Message } from '../message';
+import { AppComponent } from '../app.component'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,7 +16,7 @@ const httpOptions = {
 
 export class CarreraService {
 
-	private baseUrl = 'http://localhost:8080/api';
+	private baseUrl = AppComponent.baseURL;
 
   constructor(private http: HttpClient) { }
 
@@ -36,8 +37,8 @@ export class CarreraService {
     return this.http.delete<Message>(this.baseUrl+"/carrera/"+nombre, httpOptions);
   }
 
-  modifyCarrera(modifiedCarrera : Carrera): Observable<Message>{
-    return this.http.put<Message>(this.baseUrl+"/carrera/"+modifiedCarrera.nombre, modifiedCarrera,httpOptions);
+  modifyCarrera(modifiedCarrera : Carrera): Observable<Carrera>{
+    return this.http.put<Carrera>(this.baseUrl+"/carrera/"+modifiedCarrera.nombre, modifiedCarrera,httpOptions);
   }
 
   getUserCarreras():Observable<Carrera[]>{

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 
 import { Carrera } from '../../../model/carrera';
@@ -11,7 +11,8 @@ import { CarreraService } from '../../../services/carrera.service';
 })
 export class CarreraFormComponent implements OnInit {
 
-  @Input() carrera: Carrera;
+  @Input() carreraIn: Carrera;
+  @Output() edit: EventEmitter<Carrera> = new EventEmitter();
   isEdit: boolean;
   error: boolean;
   submitting: boolean;
@@ -25,7 +26,7 @@ export class CarreraFormComponent implements OnInit {
 	constructor(private formBuilder: FormBuilder, private carreraService: CarreraService) {}
 
   ngOnInit() {
-    this.isEdit = !!this.carrera;
+    this.isEdit = (this.carreraIn!=null);
     this.submitBtnText = this.isEdit ? 'Modificar carrera' : 'Crear carrera';
 
     this.newCarrera = this._setNewCarrera();
@@ -38,8 +39,8 @@ export class CarreraFormComponent implements OnInit {
       return new Carrera(null, []);
     } else {
       return new Carrera(
-        this.carrera.nombre,
-        this.carrera.materias,
+        this.carreraIn.nombre,
+        this.carreraIn.materias,
       );
     }
   }
@@ -58,7 +59,7 @@ export class CarreraFormComponent implements OnInit {
 
   addSubjects(cantidad: number){
   	this.subjects = this.carreraForm.get('subjects') as FormArray;
-  	for (var _i = 0; _i < cantidad; _i++){ 
+  	for (var _i = 0; _i < cantidad; _i++){
   		this.subjects.push(new FormControl());
   	}
   }
@@ -71,10 +72,18 @@ export class CarreraFormComponent implements OnInit {
     this.submitting = true;
 
     if (!this.isEdit) {
-      this.carreraService.addCarrera(submitCarrera).subscribe(carrera => this._handleSubmitSuccess(carrera));
+      this.carreraService.addCarrera(submitCarrera)
+        .subscribe(carrera => {
+          this._handleSubmitSuccess(carrera);
+          this.edit.emit(carrera);
+        });
     } else {
-      this.carreraService.modifyCarrera(submitCarrera).subscribe(message => console.log(message));
-    }
+      this.carreraService.modifyCarrera(submitCarrera)
+        .subscribe(carrera => {
+          this._handleSubmitSuccess(carrera);
+          this.edit.emit(carrera)
+        });
+      }
   }
 
   private _handleSubmitSuccess(res) {
@@ -90,7 +99,7 @@ export class CarreraFormComponent implements OnInit {
   }
 
   ereaseForm(){
-    
+
   }
 
 }

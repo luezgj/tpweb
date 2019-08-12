@@ -10,7 +10,7 @@ import { Mesa } from '../../model/mesa'
   styleUrls: ['./mesa.component.scss']
 })
 export class MesaComponent implements OnInit {
-  evento : EventEmitter<Mesa>;
+  evento : EventEmitter<Mesa>= new EventEmitter<Mesa>();
 
   constructor() { }
 

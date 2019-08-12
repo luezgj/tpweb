@@ -26,10 +26,14 @@ export class CarreraComponent implements OnInit {
   }
 
   carreraAdded(carrera : Carrera): void{
+    console.log('carrera agregada');
+    console.log(carrera);
     this.carreras.push(carrera);
   }
 
   carreraUpdated(carrera : Carrera): void{
+    console.log("Carrera agregada");
+    console.log(carrera);
     this.carreras[this.carreras.findIndex(c => c.nombre == carrera.nombre)] = carrera;
   }
 
@@ -37,8 +41,8 @@ export class CarreraComponent implements OnInit {
     this.selectedCarrera=carrera.nombre;
   }
 
-  delCarrera(nombre : String): void {
+  delCarrera(deletingCarrera : Carrera): void {
 
-    this.carreraService.deleteCarrera(nombre);
+    this.carreraService.deleteCarrera(deletingCarrera.nombre);
   }
 }

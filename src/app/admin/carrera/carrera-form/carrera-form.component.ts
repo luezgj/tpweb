@@ -11,7 +11,7 @@ import { CarreraService } from '../../../services/carrera.service';
 })
 export class CarreraFormComponent implements OnInit {
 
-  @Input() carrera: Carrera;
+  @Input() carreraIn: Carrera;
   @Output() edit: EventEmitter<Carrera> = new EventEmitter();
   isEdit: boolean;
   error: boolean;
@@ -26,7 +26,7 @@ export class CarreraFormComponent implements OnInit {
 	constructor(private formBuilder: FormBuilder, private carreraService: CarreraService) {}
 
   ngOnInit() {
-    this.isEdit = !!this.carrera;
+    this.isEdit = (this.carreraIn!=null);
     this.submitBtnText = this.isEdit ? 'Modificar carrera' : 'Crear carrera';
 
     this.newCarrera = this._setNewCarrera();
@@ -39,8 +39,8 @@ export class CarreraFormComponent implements OnInit {
       return new Carrera(null, []);
     } else {
       return new Carrera(
-        this.carrera.nombre,
-        this.carrera.materias,
+        this.carreraIn.nombre,
+        this.carreraIn.materias,
       );
     }
   }
@@ -79,9 +79,9 @@ export class CarreraFormComponent implements OnInit {
         });
     } else {
       this.carreraService.modifyCarrera(submitCarrera)
-        .subscribe(message => {
-          console.log(message);
-          this.edit.emit(this.carrera)
+        .subscribe(carrera => {
+          this._handleSubmitSuccess(carrera);
+          this.edit.emit(carrera)
         });
       }
   }

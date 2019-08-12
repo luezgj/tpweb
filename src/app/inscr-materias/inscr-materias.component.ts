@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -16,6 +16,7 @@ import { TokenStorageService } from '../auth/token-storage.service';
 })
 export class InscrMateriasComponent implements OnInit {
   @Input('carrera') carrera: Carrera;
+
   materias: string[];
   selectedMateria: string;
 
@@ -36,6 +37,14 @@ export class InscrMateriasComponent implements OnInit {
       this.materias = this.carrera.materias;
     }
   }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes.carrera && changes.carrera.currentValue){
+      const carreraChange: SimpleChange = changes.carrera;
+      this.selectedMateria=null;
+      this.materias = carreraChange.currentValue.materias;
+    }
+}
 
   selectMateria(newSelectedMateria): void{
     this.selectedMateria=newSelectedMateria;

@@ -37,8 +37,8 @@ export class CarreraService {
     return this.http.delete<Message>(this.baseUrl+"/carrera/"+nombre, httpOptions);
   }
 
-  modifyCarrera(modifiedCarrera : Carrera): Observable<Message>{
-    return this.http.put<Message>(this.baseUrl+"/carrera/"+modifiedCarrera.nombre, modifiedCarrera,httpOptions);
+  modifyCarrera(modifiedCarrera : Carrera): Observable<Carrera>{
+    return this.http.put<Carrera>(this.baseUrl+"/carrera/"+modifiedCarrera.nombre, modifiedCarrera,httpOptions);
   }
 
   getUserCarreras():Observable<Carrera[]>{

@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MesasComponent } from '../mesas/mesas.component';
 import { UserCarrerasComponent } from '../user-carreras/user-carreras.component';
+import { Log } from '../model/log';
+import { TokenStorageService } from '../auth/token-storage.service';
+import { LogService } from '../services/log.service';
 
 @Component({
   selector: 'app-new-log',
@@ -14,18 +17,15 @@ export class NewLogComponent implements OnInit {
   @ViewChild(UserCarrerasComponent/*, {static: false}*/)
   private carreras: UserCarrerasComponent;
 
-  constructor() { }
+  constructor(private tokenService: TokenStorageService, private logService: LogService) { }
 
   ngOnInit() {
   }
 
   generateLog() : void {
-    console.log(this.mesas.selectedMesa);
-    console.log(this.mesas.selectedMesa);
-    console.log(this.mesas.selectedMesa);
-    //let newLog = new Log(this.tokenService.getUsername(), this.mesa.nombre, materia, this.carrera.nombre,
-    //                'Pendiente', new Date());
-    //this.logService.createLog(newLog);
+    let newLog = new Log(this.tokenService.getUsername(), this.mesas.selectedMesa.nombre, this.carreras.materias.selectedMateria, this.carreras.selectedCarrera.nombre,
+                    'Pendiente', new Date());
+    this.logService.createLog(newLog).subscribe(log => console.log("Log creado"+log));
   }
 
 }

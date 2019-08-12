@@ -10,7 +10,7 @@ import { finalize } from 'rxjs/operators';
 })
 export class AppComponent {
   title = 'Planificador de finales';
-  static baseURL = "10.13.131.113:8080/api";
+  static baseURL = 'http://localhost:8080/api';
 
 	constructor(private http: HttpClient, private router: Router) {
   }

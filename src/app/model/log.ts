@@ -19,6 +19,7 @@ export class Log {
 		this.mesa= mesa;
 		this.materia= materia;
 		this.carrera= carrera;
+		this.estado= estado;
 		this.fecha= fecha;
   }
 }

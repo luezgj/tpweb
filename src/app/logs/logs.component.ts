@@ -38,6 +38,7 @@ export class LogsComponent implements OnInit {
 
   conformModify(log : Log, index : number) : void{
     console.log("modifing "+index);
+    log.estado=this.selection[index];
     this.logService.modifyLog(log).subscribe(modifiedLog=> {
         this.logs[index] = modifiedLog;
         this.editingLog=-1;

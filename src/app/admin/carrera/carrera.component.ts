@@ -41,8 +41,7 @@ export class CarreraComponent implements OnInit {
     this.selectedCarrera=carrera.nombre;
   }
 
-  delCarrera(deletingCarrera : Carrera): void {
-
-    this.carreraService.deleteCarrera(deletingCarrera.nombre);
+  delCarrera(deletingCarrera : Carrera,index :number): void {
+    this.carreraService.deleteCarrera(deletingCarrera.nombre).subscribe(msg=>{console.log(msg);this.carreras.splice(index,1);});
   }
 }

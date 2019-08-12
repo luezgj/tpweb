@@ -1,5 +1,5 @@
 <form [formGroup]="carreraForm" (ngSubmit)="add(carreraForm)">
-  <input formControlName="nombre" placeholder="Nombre de la carrera" [attr.disabled]="isEdit">
+  <input formControlName="nombre" placeholder="Nombre de la carrera" [attr.disabled]="isEdit ? true : null">
   <input type="number" formControlName="cantidadMaterias" placeholder="Cantidad de materias:">
 	<button type="button" (click)="addSubjects(carreraForm.get('cantidadMaterias').value)">Agregar materias</button>
 

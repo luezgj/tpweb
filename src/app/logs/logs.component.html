@@ -6,7 +6,7 @@
       <span class="badge">{{log.id}}</span> Date = {{log.fecha }}
     </a>
     <select name="Estado" [(ngModel)]="selection[i]" [disabled]="i!=this.editingLog">
-      <option value="Sin rendir">Sin rendir</option>
+      <option value="Pendiente">Pendiente</option>
       <option value="Ausente">Ausente</option>
       <option value="Aprobado">Aprobado</option>
       <option value="Desaprobado">Desaprobado</option>
